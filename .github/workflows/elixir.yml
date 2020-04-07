@@ -14,7 +14,7 @@ jobs:
     services:
       db:
         image: postgres:11
-        ports: [‘5432:5432’]
+        ports: ['5432:5432']
         options: >-
           — health-cmd pg_isready
           — health-interval 10s
@@ -54,5 +54,5 @@ jobs:
     - name: Run Dialyzer
       run: mix dialyzer
 
-    - name: Run Tests
-      run: mix coveralls.github
+    # - name: Run Tests
+    #   run: mix coveralls.github

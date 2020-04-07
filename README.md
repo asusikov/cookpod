@@ -1,5 +1,7 @@
 # Cookpod
 
+![](https://github.com/asusikov/cookpod/workflows/cookpod/badge.svg)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

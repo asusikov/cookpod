@@ -1,4 +1,4 @@
-name: cookpod
+name: build
 
 on:
   push:

@@ -4,6 +4,9 @@ defmodule Cookpod.MixProject do
   def project do
     [
       app: :cookpod,
+      dialyzer: [
+        plt_core_path: "_build/#{Mix.env()}"
+      ],
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),

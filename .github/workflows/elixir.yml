@@ -24,5 +24,7 @@ jobs:
       run: mix format --check-formatted
     - name: Run credo
       run: mix credo
+    - name: Run dialyxir
+      run: mix dialyxir
     - name: Run Tests
       run: mix test

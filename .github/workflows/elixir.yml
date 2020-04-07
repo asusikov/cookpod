@@ -50,5 +50,7 @@ jobs:
     - name: Run Dialyzer
       run: mix dialyzer
 
+    - name: Send Coverage
+      run: mix coveralls.github
     # - name: Run Tests
     #   run: mix test

@@ -11,6 +11,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      db:
+        image: postgres:11
+        ports: ['5432:5432']
+
     steps:
     - uses: actions/checkout@v2
 
@@ -36,13 +41,18 @@ jobs:
 
     - name: Install Dependencies
       run: mix deps.get
+
     - name: Compile
       run: mix compile
+
     - name: Run formatter
       run: mix format --check-formatted
+
     - name: Run Credo
       run: mix credo
+
     - name: Run Dialyzer
       run: mix dialyzer
+
     # - name: Run Tests
     #   run: mix test

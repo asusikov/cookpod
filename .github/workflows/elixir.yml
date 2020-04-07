@@ -50,5 +50,5 @@ jobs:
     - name: Run Dialyzer
       run: mix dialyzer
 
-    - name: Run Tests
-      run: mix test
+    # - name: Run Tests
+    #   run: mix test

@@ -5,6 +5,8 @@ defmodule Cookpod.MixProject do
     [
       app: :cookpod,
       dialyzer: [
+        plt_add_apps: [:mix, :ex_unit],
+        check_plt: true,
         plt_core_path: "_build/#{Mix.env()}"
       ],
       version: "0.1.0",

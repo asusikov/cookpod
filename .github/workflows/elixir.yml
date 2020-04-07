@@ -39,7 +39,7 @@ jobs:
       run: mix deps.get
 
     - name: Compile
-      run: mix compile
+      run: mix compile --warnings-as-errors
 
     - name: Run formatter
       run: mix format --check-formatted

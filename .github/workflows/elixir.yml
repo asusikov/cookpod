@@ -22,9 +22,9 @@ jobs:
       run: mix deps.get
     - name: Run formatter
       run: mix format --check-formatted
-    - name: Run credo
+    - name: Run Credo
       run: mix credo
-    - name: Run dialyxir
-      run: mix dialyxir
+    - name: Run Dialyzer
+      run: mix dialyzer
     - name: Run Tests
       run: mix test

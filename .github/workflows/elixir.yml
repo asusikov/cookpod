@@ -1,0 +1,62 @@
+name: cookpod
+
+env:
+  MIX_ENV: test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:11
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup elixir
+      uses: actions/setup-elixir@v1
+      with:
+        elixir-version: 1.9.4 # Define the elixir version [required]
+        otp-version: 22.2 # Define the OTP version [required]
+
+    - uses: actions/cache@v1
+      with:
+        path: deps
+        key: dependencies-${{ hashFiles('mix.lock') }}
+
+    - uses: actions/cache@v1
+      with:
+        path: _build
+        key: build-${{ hashFiles('mix.lock') }}
+
+    - name: Install Dependencies
+      run: mix deps.get
+
+    - name: Compile
+      run: mix compile --warnings-as-errors
+
+    - name: Run formatter
+      run: mix format --check-formatted
+
+    - name: Run Credo
+      run: mix credo
+
+    - name: Run Dialyzer
+      run: mix dialyzer
+
+    - name: Run Tests
+      run: mix coveralls.github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,9 @@
 # Cookpod
 
+[![build](https://github.com/asusikov/cookpod/workflows/cookpod/badge.svg)](https://github.com/asusikov/cookpod/actions)
+[![codebeat badge](https://codebeat.co/badges/a1196721-08a8-4351-a795-a7a3c4755149)](https://codebeat.co/projects/github-com-asusikov-cookpod-master)
+[![Coverage Status](https://coveralls.io/repos/github/asusikov/cookpod/badge.svg?branch=master)](https://coveralls.io/github/asusikov/cookpod?branch=master)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

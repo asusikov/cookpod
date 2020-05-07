@@ -29,7 +29,8 @@ config :phoenix, :json_library, Jason
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
   slime: PhoenixSlime.Engine,
-  slimleex: PhoenixSlime.LiveViewEngine # If you want to use LiveView
+  # If you want to use LiveView
+  slimleex: PhoenixSlime.LiveViewEngine
 
 config :cookpod, CookpodWeb.Gettext, locales: ["en", "ru"], default_locale: "ru"
 

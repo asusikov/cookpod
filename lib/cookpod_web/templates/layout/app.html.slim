@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title
+      = assigns[:page_title] || "Cookpod · Phoenix Framework"
+    - stylesheet_href = Routes.static_path(@conn, "/css/app.css")
+    link rel="stylesheet" href="#{stylesheet_href}"
+    = csrf_meta_tag()
+  body
+  header
+    nav.navbar.navbar-light.bg-light.navbar-expand-lg
+      a.navbar-brand href="/" Cookpod
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link href="/terms" Terms
+
+  main.container
+    = if get_flash(@conn, :info) do
+      p.alert.alert-info role="alert"
+        = get_flash(@conn, :info)
+    = if get_flash(@conn, :error) do
+      p.alert.alert-danger role="alert"
+        = get_flash(@conn, :error)
+
+    = render @view_module, @view_template, assigns
+
+  - script_src = Routes.static_path(@conn, "/js/app.js")
+  script type="text/javascript" src="#{script_src}"

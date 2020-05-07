@@ -15,7 +15,8 @@ html
       a.navbar-brand href="/" Cookpod
       ul.navbar-nav
         li.nav-item
-          a.nav-link href="/terms" Terms
+          a.nav-link href="/terms" 
+            = gettext("Terms")
 
   main.container
     = if get_flash(@conn, :info) do
